@@ -1,6 +1,3 @@
-<style>
-*{font-family: Consolas;}
-</style>
 
 # Programación web :computer:
 
