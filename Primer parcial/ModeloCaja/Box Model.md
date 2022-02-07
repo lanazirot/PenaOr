@@ -107,7 +107,7 @@ que en algunos navegadores, ciertas características no son soportadas por el mi
 </p>
 
 ## Ejemplo de box model 💻
-<img src="Box Model.png"/>
+<img src="/Primer%20parcial/ModeloCaja/Box%20model.png"/>
 
 ---
 
