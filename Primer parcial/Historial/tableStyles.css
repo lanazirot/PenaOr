@@ -1,0 +1,67 @@
+body {
+  background-color: rgb(226, 226, 226);
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ff4800;
+}
+
+#main-table tbody td:first-of-type{
+  font-weight: bold;
+}
+
+#main-table td {
+  padding: 1.3rem;
+  text-align: justify;
+}
+
+#main-table tbody tr > td:last-child{
+  width: 45%;
+  max-width: 45%;
+}
+
+#main-table tbody tr > td:nth-child(2), td:nth-child(3){
+  width: 10%;
+  max-width: 15%;
+}
+
+
+#main-table tbody tr:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+#main-table thead tr {
+  background-color: #05577f;
+  color: white;
+  text-align: center;
+}
+
+#main-table tr{
+    transition: .2s ease-in-out;
+}
+
+#main-table tr:nth-child(even){
+    background-color: #099CE5;
+    color: white;
+}
+
+#main-table {
+  background-color: white !important;
+  border: none;
+  border-collapse: collapse;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  display: table;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3em;
+  margin: 1rem;
+  min-width: 400px;
+  table-layout: fixed;
+  overflow: hidden;
+}
