@@ -26,25 +26,15 @@ const traducciones = {
 
 const rellenarTablaConDatosAPI = ({ results }) => {
   const tabla = document.querySelector("#main-table tbody");
-  const personajesTabla = results.map(
-    ({
-      name,
-      status,
-      species,
-      gender,
-      origin: { name: nombreOrigen },
-      image,
-    }) => {
-      return {
-        name,
-        status,
-        species,
-        gender,
-        nombreOrigen,
-        image,
-      };
-    }
-  );
+  const personajesTabla = results.map((personaje) => ({
+    name: personaje.name,
+    status: personaje.status,
+    species: personaje.species,
+    gender: personaje.gender,
+    nombreOrigen: personaje.origin.name,
+    image: personaje.image,
+  }));
+
   for (let element of personajesTabla) {
     let nuevoRow = tabla.insertRow();
     for (key in element) {
