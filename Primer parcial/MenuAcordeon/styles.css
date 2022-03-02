@@ -6,14 +6,24 @@
 body {
   background: #eee;
 }
+
+.title {
+  display: flex;
+  flex-direction: row;
+}
+
+.plus {
+  margin-left: auto;
+}
+
 .box {
   margin: 10px auto;
   width: 50%;
   background-color: #eee;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.85);
 }
 
-.box:hover{
+.box:hover {
   cursor: pointer;
 }
 
@@ -31,24 +41,29 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   background-color: rgb(54, 49, 49);
   margin: 0;
   padding-left: 20px;
-  transition: all 0.8s ease;
+  transition: all 2s ease;
 }
 
 ul {
   list-style: none;
 }
 
-p i, li i {
+p i,
+li i {
   margin-right: 10px;
 }
 
 .box:hover .box-item:hover .box-item-content {
-  height: 100%;
+  max-height: 1000px; /*Temporalmente, se queda asi por la cantidad de elementos, no han arreglado el height 100% con animaciones :(*/
   cursor: pointer;
 }
 
+.box:hover .title:hover i:nth-child(2)::before {
+  content: "\f056";
+  font: normal normal normal FontAwesome;
+}
