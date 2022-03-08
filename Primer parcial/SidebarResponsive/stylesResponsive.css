@@ -1,0 +1,114 @@
+@media screen and (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%; /*aqui*/
+    background-color: var(--colorPrincipal);
+    color: white;
+    width: 100%;
+    height: 100vh;
+    padding: 1.5rem 0;
+    z-index: 100;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (min-width: 700px) { /*tablet en adelante*/
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background-color: var(--colorPrincipal);
+    color: white;
+    width: 25%;
+    height: 100vh;
+    padding: 1.5rem 0;
+    z-index: 100;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) { /*solo tableta*/
+  nav {
+    width: 100%;
+    height: 10%;
+    left: 0;
+  }
+
+  header {
+    height: 4rem;
+  }
+
+  .navPrincipal,
+  .faqs {
+    margin-left: 0.5rem;
+  }
+
+  .listaOpciones {
+    margin-right: 0.7rem;
+  }
+
+  .listaOpciones .opcion a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .listaOpciones .opcion a i {
+    padding-bottom: 0.35rem;
+  }
+
+  .opcion {
+    display: flex;
+    justify-content: center;
+  }
+
+  .faqs {
+    display: flex;
+    margin-left: 2rem;
+  }
+
+  .headder-banner-texto {
+    height: auto;
+    position: relative;
+  }
+
+  .menuToggle,
+  #btnCerrar {
+    display: none;
+  }
+
+  .content {
+    padding: 4rem 2rem;
+  }
+
+  nav, .opcion {
+    margin: 0 auto;
+  }
+
+  .contenidoNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .listaOpciones {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--colorPrincipal);
+    width: 100%;
+  }
+
+  .opcion-item {
+    padding: 0.5rem 0.8rem;
+  }
+  .opcion-item:hover {
+    background-color: var(--hoverColor);
+  }
+  .activo {
+    background-color: var(--hoverColor);
+    color: white;
+  }
+}
