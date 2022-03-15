@@ -17,5 +17,5 @@
 | Carpeta | Contenido |
 | ------- | --------- |
 | Primer parcial | Trabajos del primer parcial |
-
+| Segundo parcial | Trabajos del segundo parcial |
 
