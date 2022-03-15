@@ -5,4 +5,4 @@
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| [ModeloCaja](PropiedadesFlex/Investigación%20flexbox.md) | Investigación de flexbox (14/03/2022) |
+| [PropiedadesFlex](PropiedadesFlex/Investigación%20flexbox.md) | Investigación de flexbox (14/03/2022) |
