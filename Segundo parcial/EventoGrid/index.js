@@ -9,6 +9,10 @@
 
 const fillData = data => {
     const container = document.getElementById('contenedor');
+    //Ejercicio en clase
+    container.addEventListener('click', e =>{
+        e.target.parentNode.className == 'caja' && e.target.classList.toggle('cajaRoja'); // Aqui esta el evento que agregue
+    });
     data.length = 100;
     data.forEach(element => {
        const child = document.createElement('div');

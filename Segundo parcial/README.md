@@ -10,3 +10,4 @@
 | [TrabajoEnSesionGrid](TrabajoEnSesionGrid/index.html) | Trabajo en sesión Grid CSS (18/03/2022) |
 | [SidebarFlexbox](SidebarFlexbox/index.html) | Sidebar responsive elaborado con flexbox (19/03/2022) |
 | [LayoutGrid](LayoutGrid/index.html) | Página elaborada con Grid en CSS (22/03/2022) |
+| [EventoGrid](EventoGrid/index.html) | Evento con Grid en CSS (29/03/2022) |
