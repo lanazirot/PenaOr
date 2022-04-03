@@ -110,7 +110,7 @@ document.getElementById('div2').addEventListener('click', () => {
 
 La página luce de la siguiente forma  
 
-<img src="Pagina%201.png" style="border: 1px solid black"/>  
+<img src="Pagina%201.png" style="border: 1px solid black;"/>  
 
 Entonces, como no estamos indicando la fase de captura, asumimos que la fase de burbujeo es la que está por default  
 
@@ -302,8 +302,55 @@ Entonces, el output es el siguiente:
 4. Evento document  
 
 ## Detener propagaciones de eventos  
-Y bueno, la pregunta que muchos nos vamos a hacer cuando programamos, ¿cómo detengo el evento de propagación en JavaScript?.  
+<p style="text-align: justify">Y bueno, la pregunta que muchos nos vamos a hacer cuando programamos, ¿cómo detengo el evento de propagación en JavaScript?.  
 Utilizando el ejemplo anterior, ¿qué sucedería si yo solo quiero que en realidad, al dar clic en el div 2, sólo se ejecute lo que  
-pertenece sólo al listener del div 2?  
+pertenece sólo al listener del div 2?  </p>
 
-Existen dos formas, la función stopPropagation
+Existen dos formas, la función stopPropagation, que previene cualquier propagación del evento, veamos un ejemplo  
+
+### stopPropagation
+
+```javascript
+window.onload = function () {
+  window.addEventListener('click', () => {
+    console.log('Evento window');
+  });
+
+  document.addEventListener('click', () => {
+    console.log('Evento document');
+  });
+
+  document.getElementById('div1').addEventListener('click', () => {
+    console.log('Div 1');
+  });
+
+  document.getElementById('div2').addEventListener('click', (e) => {
+    console.log('Div 2');
+    e.stopPropagation();
+  });
+};
+
+```
+
+<p style="text-align: justify">Al dar clic en el elemento div 2, el output será únicamente "Div 2", ignorando la propagación del evento, evitando el burbujeo 
+de los demás elementos padre que tenga. Ojo, esto no aplica si se le colocara useCapture: true, a los elementos padre, esto va 
+por encima del stopPropagation.</p>  
+
+### stopInmediatePropagation
+<p style="text-align: justify">¿Qué sucedería si tengo varios listeners apuntando al mismo elemento, y quiero sólo ejecutar en el que estoy trabajando?  
+Utilizar la función stopInmediatePropagation es lo ideal  </p>
+
+```javascript
+window.onload = function () {
+  document.getElementById('div2').addEventListener('click', (e) => {
+    console.log('Div 2 primer método');
+    e.stopImmediatePropagation();
+  });
+  document.getElementById('div2').addEventListener('click', (e) => {
+    console.log('Div 2 segundo método');
+  });
+};
+
+```
+
+Al dar clic en el elemento div 2, sólo es ejecutado el primer listener, imprimiendo en consola "Div 2 primer método".  
