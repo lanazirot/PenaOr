@@ -354,3 +354,9 @@ window.onload = function () {
 ```
 
 Al dar clic en el elemento div 2, sólo es ejecutado el primer listener, imprimiendo en consola "Div 2 primer método".  
+
+
+## Referencias electrónicas
+https://www.w3.org/TR/uievents/
+https://blog.bitsrc.io/event-bubbling-and-capturing-in-javascript-6bc908321b22
+
