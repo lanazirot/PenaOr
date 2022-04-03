@@ -11,3 +11,5 @@
 | [SidebarFlexbox](SidebarFlexbox/index.html) | Sidebar responsive elaborado con flexbox (19/03/2022) |
 | [LayoutGrid](LayoutGrid/index.html) | Página elaborada con Grid en CSS (22/03/2022) |
 | [EventoGrid](EventoGrid/index.html) | Evento con Grid en CSS (29/03/2022) |
+| [EventosJS](EventosJS/Capturing%20and%20Bubbling.md) | Investigación de capturing y bubbling en JS (02/04/2022) |
+| [FormularioBootstrap](FormularioBootstrap/index.html) | Formulario responsive elaborado con Bootstrap (03/04/2022) |
