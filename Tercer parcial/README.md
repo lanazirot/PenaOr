@@ -1,7 +1,7 @@
 
 # Programación web :computer:
 
-## Carpeta del segundo parcial - :three:
+## Carpeta del tercer parcial - :three:
 
 | Carpeta | Contenido |
 | ------- | --------- |
