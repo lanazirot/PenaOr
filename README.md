@@ -18,4 +18,5 @@
 | ------- | --------- |
 | Primer parcial | Trabajos del primer parcial |
 | Segundo parcial | Trabajos del segundo parcial |
+| Tercer parcial | Trabajos del tercer parcial |
 
