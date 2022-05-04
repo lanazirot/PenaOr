@@ -38,6 +38,7 @@ import { validarExistencia } from "./validation.js";
         toast.hide()
       }, 5000);
       localStorage.setItem(email, JSON.stringify(entries)); 
+      $('#checkMail').css('display', 'none');
     });
 
   })
