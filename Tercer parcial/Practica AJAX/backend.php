@@ -5,6 +5,6 @@
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
         echo json_encode(array('status' => '200', 'message' => 'Email valido'));
     }else{
-        echo json_encode(array('status' => '500', 'message' => 'Email invalido'));
+        echo json_encode(array('status' => '500', 'message' => 'Email invalido. Correos pueden no llegar.'));
     }
 ?>
