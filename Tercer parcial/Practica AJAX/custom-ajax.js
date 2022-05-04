@@ -18,6 +18,9 @@ $(document).ready(()=>{
                 $('#checkMail').text(message);
                 $('#checkMail').removeClass();
                 $('#checkMail').addClass(`alert ${status == '200' ? 'alert-success' : 'alert-danger'}`);
+            },
+            error: error =>{
+                console.log(error);
             }
         });
     });
