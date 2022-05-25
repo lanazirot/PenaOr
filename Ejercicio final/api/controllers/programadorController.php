@@ -29,19 +29,18 @@
 
         //Create programador
         public function createProgramador($programador){
-            $query = "INSERT INTO Programadores (nombre, apellidos, correo, fecha_ingreso, pais, estado_civil, departamento, detalles, equipo_personal, vehiculo_personal, visa_laser) VALUES (:nombre, :apellidos, :correo, :fecha_ingreso, :pais, :estado_civil, :departamento, :detalles, :equipo_personal, :vehiculo_personal, :visa_laser)";
+            $query = "INSERT INTO Programadores (nombre, apellidos, correo, pais, estado_civil, departamento, detalles, equipo_personal, vehiculo_personal, visa_laser) VALUES (:nombre, :apellidos, :correo, :pais, :estado_civil, :departamento, :detalles, :equipo_personal, :vehiculo_personal, :visa_laser)";
             $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(':nombre', $programador->getNombre());
-            $stmt->bindParam(':apellidos', $programador->getApellidos());
-            $stmt->bindParam(':correo', $programador->getCorreo());
-            $stmt->bindParam(':fecha_ingreso', $programador->getFechaIngreso());
-            $stmt->bindParam(':pais', $programador->getPais());
-            $stmt->bindParam(':estado_civil', $programador->getEstadoCivil());
-            $stmt->bindParam(':departamento', $programador->getDepartamento());
-            $stmt->bindParam(':detalles', $programador->getDetalles());
-            $stmt->bindParam(':equipo_personal', $programador->getEquipoPersonal());
-            $stmt->bindParam(':vehiculo_personal', $programador->getVehiculoPersonal());
-            $stmt->bindParam(':visa_laser', $programador->getVisaLaser());
+            $stmt->bindValue(':nombre', $programador->getNombre());
+            $stmt->bindValue(':apellidos', $programador->getApellidos());
+            $stmt->bindValue(':correo', $programador->getCorreo());
+            $stmt->bindValue(':pais', $programador->getPais());
+            $stmt->bindValue(':estado_civil', $programador->getEstadoCivil());
+            $stmt->bindValue(':departamento', $programador->getDepartamento());
+            $stmt->bindValue(':detalles', $programador->getDetalles());
+            $stmt->bindValue(':equipo_personal', $programador->getEquipoPersonal());
+            $stmt->bindValue(':vehiculo_personal', $programador->getVehiculoPersonal());
+            $stmt->bindValue(':visa_laser', $programador->getVisaLaser());
             $stmt->execute();
             return $stmt;
         }
@@ -73,6 +72,22 @@
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             return $stmt;
+        }
+
+        //Get Programador from JSON
+        public function getProgramadorFromJSON($programador){
+            $programadorReturn = new Programador();
+            $programadorReturn->setNombre($programador->nombre);
+            $programadorReturn->setApellidos($programador->apellidos);
+            $programadorReturn->setCorreo($programador->correo);
+            $programadorReturn->setPais($programador->pais);
+            $programadorReturn->setEstadoCivil($programador->estado_civil);
+            $programadorReturn->setDepartamento($programador->departamento);
+            $programadorReturn->setDetalles($programador->detalles);
+            $programadorReturn->setEquipoPersonal($programador->equipo_personal);
+            $programadorReturn->setVehiculoPersonal($programador->vehiculo_personal);
+            $programadorReturn->setVisaLaser($programador->visa_laser);
+            return $programadorReturn;
         }
 
     }
