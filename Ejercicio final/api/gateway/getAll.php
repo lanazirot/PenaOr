@@ -2,9 +2,8 @@
     header('Content-Type: application/json; charset=utf-8');
     header("Access-Control-Allow-Origin: *");
     
-    include_once './../database/connection.php';
-    include_once './../controllers/programadorController.php';
-    include_once './../response/response.php';
+    include './../controllers/programadorController.php';
+    include './../response/response.php';
 
     $programadorController = new ProgramadorController();
     $response = new Response();
@@ -26,11 +25,11 @@
             $programador->setEquipoPersonal($row['equipo_personal']);
             $programador->setVehiculoPersonal($row['vehiculo_personal']);
             $programador->setVisaLaser($row['visa_laser']);
-            array_push($programadores, $programador);
+            array_push($programadores, $programador->getProgramador());
         }
         $response->setResponse(200, 'Programadores encontrados', $programadores);
     }else{
-        $response->setResponse(400, 'No se encontraron programadores', $programadores);
+        $response->setResponse(400, 'No se encontraron programadores', null);
     }
-    echo json_encode($response);
+    echo $response->toJson();
 ?>
