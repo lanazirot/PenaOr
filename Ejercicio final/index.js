@@ -1,3 +1,6 @@
+import addProgramador from "./js/addProgramador";
+import Programador from "./js/models/Programador";
+
 (() => {
   window.addEventListener('load', () => {
     const form = document.getElementById('formEmpleados');
@@ -19,24 +22,11 @@
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const entries = Object.fromEntries(new FormData(event.target));
-      const { nombre, apellidos, pais, departamento, email} = entries;
-      if(validarExistencia(entries)){
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        Swal.fire('Oops!', 'Usuario con correo ya registrado!', 'error');
-        return;
-      }
-      Swal.fire('Registrado', `El empleado ${nombre} ${apellidos}, que vive en ${pais} fue registrado exitosamente. 
-      Será asignado al departamento de ${departamento}.`, 'success');
-      resetForm.click()
-      toastmsg.innerHTML = `${nombre} en proceso. ${departamento} ya fue notificado`  
-      toast.show()
-      setTimeout(() => {
-        toast.hide()
-      }, 5000);
-      localStorage.setItem(email, JSON.stringify(entries)); 
-      $('#checkMail').css('display', 'none');
+      const programador = Programador.from(entries);
+      programador.visa_laser = entries.visa_laser === 'on';
+      programador.vehiculo_personal = entries.vehiculo_personal === 'on';
+      programador.equipo_personal = entries.equipo_personal === 'on';
+      addProgramador(programador);
     });
 
   })
