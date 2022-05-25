@@ -98,15 +98,15 @@
         }
 
         public function setEquipoPersonal($equipo_personal){
-            $this->equipo_personal = $equipo_personal;
+            $this->equipo_personal = $equipo_personal == '0' ? false : true;
         }
 
         public function setVehiculoPersonal($vehiculo_personal){
-            $this->vehiculo_personal = $vehiculo_personal;
+            $this->vehiculo_personal = $vehiculo_personal == '0' ? false : true;
         }
 
         public function setVisaLaser($visa_laser){
-            $this->visa_laser = $visa_laser;
+            $this->visa_laser = $visa_laser == '0' ? false : true;
         }
 
         public function getProgramador(){
