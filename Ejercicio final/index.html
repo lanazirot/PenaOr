@@ -20,6 +20,9 @@
 <body>
   <nav class="navbar p-3 text-white bg-primary">
     <span class="navbar-brand mb-0 h1">Registro de programador <i class="bi bi-code-square"></i></span>
+    <form class="form-inline" id="formBuscarPorId">
+      <input class="form-control mr-sm-2" name="buscarPorId" id="buscarPorId" type="search" placeholder="Busca por ID" aria-label="Search">
+    </form>
   </nav>
   <div class="container mt-5">
     <form id="formEmpleados" class="needs-validation row g-4" novalidate>
@@ -41,12 +44,12 @@
 
       <div class="col-lg-8 col-md-12">
         <div class="form-group">
-          <label for="email" class="form-label"><i class="bi bi-envelope-fill"></i> Correo electrónico</label>
+          <label for="correo" class="form-label"><i class="bi bi-envelope-fill"></i> Correo electrónico</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroupPrepend">@</span>
             </div>
-            <input type="text" class="form-control" id="email" name="email" placeholder="tucorreo@dominio.com"
+            <input type="text" class="form-control" id="correo" name="correo" placeholder="tucorreo@dominio.com"
               aria-describedby="inputGroupPrepend" required />
             <div class="invalid-feedback">El correo es obligatorio</div>
           </div>
@@ -64,11 +67,11 @@
 
       <div class="col-lg-6 col-md-6">
         <div class="form-group">
-          <label class="form-label" for="estadoCivil"><i class="bi bi-heart-fill"></i> Estado civíl</label>
-          <select name="estadoCivil" id="estadoCivil" class="form-control">
-            <option value="casado" selected>Casado</option>
-            <option value="soltero">Soltero</option>
-            <option value="otro">Otro</option>
+          <label class="form-label" for="estado_civil"><i class="bi bi-heart-fill"></i> Estado civíl</label>
+          <select name="estado_civil" id="estado_civil" class="form-control">
+            <option value="Casado" selected>Casado</option>
+            <option value="Soltero">Soltero</option>
+            <option value="Otro">Otro</option>
           </select>
         </div>
       </div>
@@ -97,18 +100,18 @@
 
       <div class="form-group d-flex justify-content-lg-around flex-column flex-lg-row">
         <div class="form-check form-switch">
-          <input class="form-check-input" name="tieneEquipoPersonal" type="checkbox" role="switch"
+          <input class="form-check-input" name="equipo_personal" type="checkbox" role="switch"
             id="tieneEquipoPersonal" />
-          <label class="form-check-label" for="tieneEquipoPersonal">Cuenta con equipo personal</label>
+          <label class="form-check-label" for="equipo_personal">Cuenta con equipo personal</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" name="tieneAutomovilPersonal" type="checkbox" role="switch"
+          <input class="form-check-input" name="vehiculo_personal" type="checkbox" role="switch"
             id="tieneAutomovilPersonal" />
-          <label class="form-check-label" for="tieneAutomovilPersonal">Cuenta con vehículo personal</label>
+          <label class="form-check-label" for="vehiculo_personal">Cuenta con vehículo personal</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" name="tieneVisaLaser" type="checkbox" role="switch" id="tieneVisaLaser" />
-          <label class="form-check-label" for="tieneVisaLaser">Cuenta con visa láser (B1/B2)</label>
+          <input class="form-check-input" name="visa_laser" type="checkbox" role="switch" id="tieneVisaLaser" />
+          <label class="form-check-label" for="visa_laser">Cuenta con visa láser (B1/B2)</label>
         </div>
       </div>
 
@@ -163,7 +166,7 @@
     </div>
   </div>
   <script type="module" src="index.js"></script>
-  <script src="fetch-data.js"></script>
+  <script type="module" src="js/buscaPorId.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
 </body>
