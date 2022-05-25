@@ -1,6 +1,6 @@
 <?php
-    require '../models/programador.php';
-    require '../database/connection.php';
+    include './../models/programador.php';
+    include './../database/connection.php';
 
     //Programador class controller
     class ProgramadorController{
