@@ -76,6 +76,10 @@
         //Get Programador from JSON
         public function getProgramadorFromJSON($programador){
             $programadorReturn = new Programador();
+            //Si el id del programador viene
+            if(isset($programador->id)){
+                $programadorReturn->setId($programador->id);
+            }
             $programadorReturn->setNombre($programador->nombre);
             $programadorReturn->setApellidos($programador->apellidos);
             $programadorReturn->setCorreo($programador->correo);
