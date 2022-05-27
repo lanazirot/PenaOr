@@ -13,7 +13,7 @@
         $id = $_GET['id'];
         $programador = $programadorController->deleteProgramador($id);
         if($programador){
-            $response->setResponse(200, 'Programador eliminado correctamente', $programador);
+            $response->setResponse(200, 'Programador eliminado correctamente', $id);
         }else{
             $response->setResponse(404, 'No se encontró el programador', null);
         }
