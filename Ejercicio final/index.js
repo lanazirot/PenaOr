@@ -4,10 +4,6 @@ import Programador from "./js/models/Programador";
 (() => {
   window.addEventListener('load', () => {
     const form = document.getElementById('formEmpleados');
-    const toastmsg = document.getElementById('toast-msg');
-    const toastLiveExample = document.getElementById('liveToast')
-    const toast = new bootstrap.Toast(toastLiveExample)
-    const resetForm = document.getElementById('resetForm');
 
     form.addEventListener('submit', event => {
       if (form.checkValidity() === false) {

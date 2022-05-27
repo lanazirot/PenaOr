@@ -11,7 +11,7 @@
     //Delete programador by id
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $programador = $programadorController->delete($id);
+        $programador = $programadorController->deleteProgramador($id);
         if($programador){
             $response->setResponse(200, 'Programador eliminado correctamente', $programador);
         }else{

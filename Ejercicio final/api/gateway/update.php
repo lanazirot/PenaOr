@@ -12,6 +12,7 @@
     $programadorBody = json_decode(file_get_contents("php://input"));
     $programador = $programadorController->getProgramadorFromJSON($programadorBody);
     
+
     //Update programador
     $actualizacion = $programadorController->updateProgramador($programador);
 
