@@ -17,14 +17,7 @@
             $programador->setNombre($row['nombre']);
             $programador->setApellidos($row['apellidos']);
             $programador->setCorreo($row['correo']);
-            $programador->setFechaIngreso($row['fecha_ingreso']);
-            $programador->setPais($row['pais']);
-            $programador->setEstadoCivil($row['estado_civil']);
             $programador->setDepartamento($row['departamento']);
-            $programador->setDetalles($row['detalles']);
-            $programador->setEquipoPersonal($row['equipo_personal']);
-            $programador->setVehiculoPersonal($row['vehiculo_personal']);
-            $programador->setVisaLaser($row['visa_laser']);
             array_push($programadores, $programador->getProgramador());
         }
         $response->setResponse(200, 'Programadores encontrados', $programadores);
