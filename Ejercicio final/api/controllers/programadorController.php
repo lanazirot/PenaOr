@@ -73,6 +73,15 @@
             return $stmt;
         }
 
+        //Check if programador exists in database
+        public function programadorExists($programador){
+            $query = "SELECT * FROM Programadores WHERE correo = :correo";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(':correo', $programador->getCorreo());
+            $stmt->execute();
+            return $stmt->rowCount() > 0;
+        }
+
         //Get Programador from JSON
         public function getProgramadorFromJSON($programador){
             $programadorReturn = new Programador();

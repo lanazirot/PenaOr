@@ -12,15 +12,13 @@
     $programadorBody = json_decode(file_get_contents("php://input"));
     $programador = $programadorController->getProgramadorFromJSON($programadorBody);
     
-
-    //Add programador
-    $creacion = $programadorController->createProgramador($programador);
-
-    if($creacion){
-        $response->setResponse(200, "Programador creado correctamente", $programador->getProgramador());
+    //Check if $programador already exists
+    $programadorExists = $programadorController->programadorExists($programador);
+    if($programadorExists){
+        $response->setResponse(409, "El programador ya existe", null);
     }else{
-        $response->setResponse(500, "Error al crear programador", null);
+        $programadorController->createProgramador($programador);
+        $response->setResponse(200, "Programador creado correctamente", $programador->getProgramador());
     }
-
     echo $response->toJson();
 ?>
