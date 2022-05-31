@@ -1,45 +1,57 @@
 import Programador from "../../js/models/Programador";
+import * as lang from './language.js'
+
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
 
 const listarProgramadores = async () => {
     //Obtenemos todos los programadores
-    const peticion = await fetch('../api/gateway/getAll.php');
-    const { code, data, message } = await peticion.json();
-    if (code === 200) {
-        //Llenar la tabla listadoProgramadores
-        const $rows = data.map(programador => $('<tr>', {
-            id: programador.id,
-            append: `<td>${programador.id}</td>
-            <td>${programador.nombre}</td>
-            <td>${programador.apellidos}</td>
-            <td>${programador.correo}</td>
-            <td>${programador.departamento}</td>`,
-            on: {
-                dblclick() {
-                    mostrarProgramador(programador);
-                }
-            }
-        }));
-        $('#listadoProgramadores').append($rows);
-    } else {
-        Swal.fire('Oops!', message, 'error');
-    }
+    $("#listadoProgramadores").dataTable({
+        ajax: '../api/gateway/getAll.php',
+        columns: [
+            { data: "id" },
+            { data: "nombre" },
+            { data: "apellidos" },
+            { data: "correo" },
+            { data: "departamento" }
+        ],
+        scroller: true,
+        deferRender: true,
+        language: lang.default,
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, "Todos"]
+        ],
+        rowId: "id",
+    });
+    $('#listadoProgramadores tbody').on('dblclick', 'tr', function () {
+        const table = $('#listadoProgramadores').DataTable();
+        const data = table.row(this).data();
+        mostrarProgramador(data);
+    });
 }
 
 
 const eliminarProgramador = async () => {
-    const id = $('#id').val();
-    console.log(id);
-    const peticion = await fetch(`../api/gateway/delete.php?id=${id}`, {
-        method: 'POST'
-    });
-    const { code, message } = await peticion.json();
-    if (code === 200) {
-        Swal.fire('Exito!', message, 'success');
-        $('#' + id).remove();
-    }
-    else {
-        Swal.fire('Oops!', message, 'error');
-    }
+
+
+    alertify.confirm("¿Estás seguro de eliminar este programador?",
+        async () => {
+            const peticion = await fetch(`../api/gateway/delete.php?id=${id}`, {
+                method: 'POST'
+            });
+            const { code, message } = await peticion.json();
+            if (code === 200) {
+                Swal.fire('Exito!', message, 'success');
+                const id = $('#id').val();
+                $('#' + id).remove();
+                $('#listadoProgramadores').DataTable().ajax.reload();
+            }
+            else {
+                Swal.fire('Oops!', message, 'error');
+            }
+        }, () => { }).set({title: "Eliminar programador"});
 }
 
 const modificarProgramador = async () => {
@@ -61,10 +73,7 @@ const modificarProgramador = async () => {
     if (code === 200) {
         Swal.fire('Exito!', message, 'success');
         //Actualizar los campos en la fila
-        $('#' + nuevoProgramador.id).children().eq(1).text(nuevoProgramador.nombre);
-        $('#' + nuevoProgramador.id).children().eq(2).text(nuevoProgramador.apellidos);
-        $('#' + nuevoProgramador.id).children().eq(3).text(nuevoProgramador.correo);
-        $('#' + nuevoProgramador.id).children().eq(4).text(nuevoProgramador.departamento);
+        $('#listadoProgramadores').DataTable().ajax.reload();
     }
     else {
         Swal.fire('Oops!', message, 'error');

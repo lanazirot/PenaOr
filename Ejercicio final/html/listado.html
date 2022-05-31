@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="Description" content="Enter your description here" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -14,6 +13,21 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="../styles/styles.css" />
   <link rel="stylesheet" href="../styles/listado/listadoStyles.css" />
+
+
+  <!-- Bootstrap theme -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css" />
+  
+  <script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
   <title>Programadores</title>
 </head>
 
@@ -38,11 +52,8 @@
     </div>
   </nav>
 
-  <div class="m-5 mb-0">
-    <input id="filter" type="text" class="form-control" placeholder="Buscar">
-  </div>
   <div class="p-5 table-responsive">
-    <table class="table table-hover" id="listadoProgramadores">
+    <table class="table table-hover table-striped" id="listadoProgramadores">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -143,6 +154,26 @@
         </div>
       </div>
     </form>
+  </div>
+
+  <!-- Modal de borrado -->
+  <div class="modal" id="eliminarModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Eliminar programador</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Los datos no podrán recuperarse. ¿Continuar?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancelarEliminar" class="btn btn-secondary" data-bs-dismiss="modal">No,
+            conservar</button>
+          <button type="button" id="aceptarEliminar" class="btn btn-danger">Sí, eliminar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="../js/listado/getAllProgramadores.js""></script>

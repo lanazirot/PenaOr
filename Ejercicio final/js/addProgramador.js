@@ -7,7 +7,12 @@ const addProgramador = async programador => {
         }
     });
     const { code, message } = await fetchData.json();
-    Swal.fire(code === 200 ? 'Exito' : 'Oops!', message, code === 200 ? 'success' : 'error');
+    Swal.fire(code === 200 ? 'Exito' : 'Oops!', message, code === 200 ? 'success' : 'error')
+        .then(() => {
+            if (code === 200) { //Si fue exitoso
+                $('#resetForm').click();
+            } //Sino, dejalo que corrija.
+        });
 }
 
 export default addProgramador;
